@@ -7,7 +7,8 @@ class Tooltip extends HTMLElement {
     constructor() {
         super()
         console.log("tooltip working!")
-        // this._tooltipContainer
+        this.attachShadow({mode: true})
+        
         
     }
 
