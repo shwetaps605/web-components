@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web components</title>
+    <style>
+        div {
+            border: 2px solid orangered;
+            padding: 5px;
+            margin-bottom: 5px;
+            
+        }
+    </style>
     <script src="tootltip.js"></script>
+    <script src="confirm-link.js"></script>
+    <script src="toggle.js"></script>
 </head>
 <body>
-    <p><ui-tooltip text="web components are awesome"></ui-tooltip>Web components</p>
-    <p><ui-tooltip></ui-tooltip>starlight</p>
-    <p><ui-tooltip></ui-tooltip>galaxyy</p>
+    <h1>Web Components</h1>
+    <div>
+        <p><ui-tooltip text="web components are awesome">
+            Web components
+        </ui-tooltip></p>
+        <p><ui-tooltip>
+            starlight
+        </ui-tooltip></p>
+        <p><ui-tooltip></ui-tooltip></p>
+    </div>
+
+    <div>
+        <a is="ui-confirm-link" href="https://www.google.com">Google</a>
+    </div>
+
+    <div>
+        <uc-toggle isHidden="false">lrem ipsum dolet</uc-toggle>
+    </div>
+
+    
 </body>
 </html>
