@@ -1,0 +1,13 @@
+
+
+aside {
+  position: fixed;
+  background-color: hsl(21, 24%, 84%);
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  width: 20rem;
+  max-width: 80%;
+  height: 100vh;
+  padding: 10px;
+}
