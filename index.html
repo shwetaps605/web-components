@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web components</title>
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+        }
         div {
             border: 2px solid orangered;
             padding: 5px;
             margin-bottom: 5px;
             
         }
+
+        ui-tooltip {
+            background-color: antiquewhite;
+        }
+
+         ui-tooltip .highlight {
+            color: orangered;
+        } 
     </style>
-    <script src="tootltip.js"></script>
+    <!-- <script src="tootltip.js"></script>
     <script src="confirm-link.js"></script>
-    <script src="toggle.js"></script>
+    <script src="toggle.js"></script> -->
+    <script src="modal.js"></script>
 </head>
 <body>
-    <h1>Web Components</h1>
+    <!-- <h1>Web Components</h1>
     <div>
-        <p><ui-tooltip text="web components are awesome">
-            Web components
-        </ui-tooltip></p>
-        <p><ui-tooltip>
+        <p>
+            <ui-tooltip  text="web components are awesome">
+                <span  class="highlight"><a>Web components</a></span>
+            </ui-tooltip>
+        </p>
+        
+        
+        <ui-tooltip class="important">
             starlight
-        </ui-tooltip></p>
+        </ui-tooltip>
         <p><ui-tooltip></ui-tooltip></p>
     </div>
 
@@ -33,8 +51,40 @@
     </div>
 
     <div>
-        <uc-toggle isHidden="false">lrem ipsum dolet</uc-toggle>
-    </div>
+        <uc-toggle isHidden="true">lrem ipsum dolet</uc-toggle>
+    </div> -->
+
+    <h1>coldplay concert</h1>
+    <p>Please confirm your choice</p>
+    <button>Show details & Confirm</button>
+
+    <ui-modal>
+        <h1 slot="title">Please confirm bro?</h1>
+        <p>will you got to the coldpaly concert with me?</p>
+    </ui-modal>
+
+    <script>
+        const button = document.querySelector('button')
+        const modal = document.querySelector('ui-modal')
+        button.addEventListener('click', ()=>{
+            //modal.setAttribute('opened', '')
+            modal.open();
+        })
+
+        modal.addEventListener('cancel',()=>{
+            console.log('listening to CANCEL event from light DOM')
+        })
+
+        modal.addEventListener('confirm',()=>{
+            console.log('listening to CONFIRM event from light DOM')
+        })
+
+        
+
+
+        
+
+    </script>
 
     
 </body>
