@@ -1,0 +1,40 @@
+:host {
+  font-family: sans-serif;
+  margin: 2rem;
+  border: 2px solid salmon;
+  display: block;
+  width: 20rem;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+form input {
+  font: inherit;
+  color: salmon;
+  padding: .1rem .25rem;
+}
+
+form input:focus ,form button:focus {
+  outline: none;
+}
+
+form button {
+  font: inherit;
+  background-color: salmon;
+  color: white;
+  border: 1px solid brown;
+  padding: .25rem .5rem;
+  cursor: pointer;
+}
+
+form button:hover,
+form button:active {
+  background-color: coral;
+  border: 1px solid coral;
+}
+
+form button:disabled {
+  background-color: #ccc;
+  border: #ccc;
+  cursor: not-allowed;
+}
