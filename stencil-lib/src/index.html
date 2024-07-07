@@ -6,9 +6,52 @@
     <title>Stencil Component Starter</title>
     <script type="module" src="/build/stencil-lib.esm.js"></script>
     <script nomodule src="/build/stencil-lib.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .side-nav ul {
+        list-style: none;
+      }
+
+      .side-nav li {
+        margin-top: 1rem;
+      }
+
+      .side-nav a {
+        text-decoration: none;
+        color: brown;
+      }
+    </style>
 
   </head>
   <body>
-    <ui-side-drawer></ui-side-drawer>
+    <button id="side-drawer-button">open</button>
+    <ui-side-drawer title="Main Menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">About</a></li>
+        </ul>
+      </nav>
+    </ui-side-drawer>
+    <script>
+
+      const sideDrawerButton = document.querySelector('#side-drawer-button')
+      const sideDrawer = document.querySelector('ui-side-drawer');
+
+      sideDrawerButton.addEventListener('click', ()=> {
+        if(!sideDrawer.open) {
+           //sideDrawer.open = true;
+           sideDrawer.openDrawer()
+        }
+      })
+      // setTimeout(()=>{
+      //   sideDrawer.open = 'true';
+      //   //sideDrawer.setAttribute('open','true')
+      // },2000)
+
+    </script>
   </body>
 </html>
