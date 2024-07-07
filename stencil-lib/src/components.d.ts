@@ -7,6 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UiSideDrawer {
+        "open": boolean;
+        "openDrawer": () => Promise<void>;
+        "title": string;
     }
 }
 declare global {
@@ -22,6 +25,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface UiSideDrawer {
+        "open"?: boolean;
+        "title"?: string;
     }
     interface IntrinsicElements {
         "ui-side-drawer": UiSideDrawer;
