@@ -8,10 +8,6 @@
   padding: 2rem;
 }
 
-:host(.error) {
-  background-color: hsl(20, 33%, 93%);
-}
-
 form input {
   font: inherit;
   color: salmon;
@@ -41,4 +37,23 @@ form button:disabled {
   background-color: #ccc;
   border: #ccc;
   cursor: not-allowed;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: .25rem 0;
+  padding:  .25rem;
+  border: 1px solid salmon;
+
+}
+
+li:hover , li:active {
+  background-color: salmon;
+  color: white;
+  cursor: pointer;
 }

@@ -11,8 +11,17 @@ export namespace Components {
         "openDrawer": () => Promise<void>;
         "title": string;
     }
-    interface UiStockPrice {
+    interface UiSpinner {
     }
+    interface UiStockFinder {
+    }
+    interface UiStockPrice {
+        "stockSymbol": string;
+    }
+}
+export interface UiStockFinderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiStockFinderElement;
 }
 declare global {
     interface HTMLUiSideDrawerElement extends Components.UiSideDrawer, HTMLStencilElement {
@@ -20,6 +29,29 @@ declare global {
     var HTMLUiSideDrawerElement: {
         prototype: HTMLUiSideDrawerElement;
         new (): HTMLUiSideDrawerElement;
+    };
+    interface HTMLUiSpinnerElement extends Components.UiSpinner, HTMLStencilElement {
+    }
+    var HTMLUiSpinnerElement: {
+        prototype: HTMLUiSpinnerElement;
+        new (): HTMLUiSpinnerElement;
+    };
+    interface HTMLUiStockFinderElementEventMap {
+        "uiSymbolSelected": string;
+    }
+    interface HTMLUiStockFinderElement extends Components.UiStockFinder, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiStockFinderElementEventMap>(type: K, listener: (this: HTMLUiStockFinderElement, ev: UiStockFinderCustomEvent<HTMLUiStockFinderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiStockFinderElementEventMap>(type: K, listener: (this: HTMLUiStockFinderElement, ev: UiStockFinderCustomEvent<HTMLUiStockFinderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiStockFinderElement: {
+        prototype: HTMLUiStockFinderElement;
+        new (): HTMLUiStockFinderElement;
     };
     interface HTMLUiStockPriceElement extends Components.UiStockPrice, HTMLStencilElement {
     }
@@ -29,6 +61,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ui-side-drawer": HTMLUiSideDrawerElement;
+        "ui-spinner": HTMLUiSpinnerElement;
+        "ui-stock-finder": HTMLUiStockFinderElement;
         "ui-stock-price": HTMLUiStockPriceElement;
     }
 }
@@ -37,10 +71,18 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "title"?: string;
     }
+    interface UiSpinner {
+    }
+    interface UiStockFinder {
+        "onUiSymbolSelected"?: (event: UiStockFinderCustomEvent<string>) => void;
+    }
     interface UiStockPrice {
+        "stockSymbol"?: string;
     }
     interface IntrinsicElements {
         "ui-side-drawer": UiSideDrawer;
+        "ui-spinner": UiSpinner;
+        "ui-stock-finder": UiStockFinder;
         "ui-stock-price": UiStockPrice;
     }
 }
@@ -49,6 +91,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ui-side-drawer": LocalJSX.UiSideDrawer & JSXBase.HTMLAttributes<HTMLUiSideDrawerElement>;
+            "ui-spinner": LocalJSX.UiSpinner & JSXBase.HTMLAttributes<HTMLUiSpinnerElement>;
+            "ui-stock-finder": LocalJSX.UiStockFinder & JSXBase.HTMLAttributes<HTMLUiStockFinderElement>;
             "ui-stock-price": LocalJSX.UiStockPrice & JSXBase.HTMLAttributes<HTMLUiStockPriceElement>;
         }
     }

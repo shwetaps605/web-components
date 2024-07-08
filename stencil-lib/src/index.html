@@ -36,7 +36,8 @@
         </ul>
       </nav>
     </ui-side-drawer>
-    <ui-stock-price></ui-stock-price>
+    <ui-stock-finder></ui-stock-finder>
+    <ui-stock-price stock-symbol="AAPL"></ui-stock-price>
     <script>
 
       const sideDrawerButton = document.querySelector('#side-drawer-button')
@@ -47,6 +48,11 @@
            //sideDrawer.open = true;
            sideDrawer.openDrawer()
         }
+      })
+
+      const stockFinderEl = document.querySelector('ui-stock-finder')
+      stockFinderEl.addEventListener('uiSymbolSelected',(event)=>{
+        console.log(event)
       })
       // setTimeout(()=>{
       //   sideDrawer.open = 'true';
